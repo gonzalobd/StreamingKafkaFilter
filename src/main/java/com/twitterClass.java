@@ -62,9 +62,9 @@ public class twitterClass {
                 if(record.value().get("lang")!=null){
                     String lang=record.value().get("lang").toString();
                     tweetFilt.put("lang",lang);}
-                if (record.value().get("user.location")!=null){
-                    String place=record.value().get("user.location").toString();
-                    tweetFilt.put("user.location",place);}
+                if (((Map)record.value().get("user")).get("time_zone")!=null){
+                    String place=((Map)record.value().get("user")).get("time_zone").toString();
+                    tweetFilt.put("time_zone",place);}
                 if (record.value().get("retweet_count")!=null){
                     Integer retweet_count=(Integer)record.value().get("retweet_count");
                     tweetFilt.put("retweet_count",retweet_count);}
