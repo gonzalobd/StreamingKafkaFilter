@@ -82,7 +82,7 @@ public class twitterClass {
                     tweetFilt.put("text",text);}
                     else{tweetFilt.put("text","notAvailable");}
                 producer.send(new ProducerRecord<>(TOPIC_OUT, "Filtered_tweet", tweetFilt));
-                System.out.println("Tweet sent: "+tweetFilt.get("text"));
+                System.out.println("Tweet sent");
 
             }
         }
