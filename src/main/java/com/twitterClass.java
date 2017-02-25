@@ -56,24 +56,31 @@ public class twitterClass {
                 if(record.value().get("created_at")!=null){
                     String created_at=record.value().get("created_at").toString();
                     tweetFilt.put("created_at",created_at);}
+                    else{tweetFilt.put("created_at","notAvailable");}
                 if(record.value().get("coordinates")!=null){
                     String coordinates=record.value().get("coordinates").toString();
                     tweetFilt.put("coordinates",coordinates);}
+                    else{tweetFilt.put("coordinates","notAvailable");}
                 if(record.value().get("lang")!=null){
                     String lang=record.value().get("lang").toString();
                     tweetFilt.put("lang",lang);}
+                    else{tweetFilt.put("lang","notAvailable");}
                 if (((Map)record.value().get("user")).get("time_zone")!=null){
                     String place=((Map)record.value().get("user")).get("time_zone").toString();
                     tweetFilt.put("time_zone",place);}
+                    else{tweetFilt.put("time_zone","notAvailable");}
                 if (record.value().get("retweet_count")!=null){
                     Integer retweet_count=(Integer)record.value().get("retweet_count");
                     tweetFilt.put("retweet_count",retweet_count);}
+                    else{tweetFilt.put("retweet_count","notAvailable");}
                 if (record.value().get("favorite_count")!=null){
                     Integer favorite_count=(Integer)record.value().get("favorite_count");
                     tweetFilt.put("favorite_count",favorite_count);}
+                    else{tweetFilt.put("favorite_count","notAvailable");}
                 if (record.value().get("text")!=null){
                     String text=record.value().get("text").toString();
                     tweetFilt.put("text",text);}
+                    else{tweetFilt.put("text","notAvailable");}
                 producer.send(new ProducerRecord<>(TOPIC_OUT, "Filtered_tweet", tweetFilt));
                 System.out.println("Tweet sent: "+tweetFilt.get("text"));
 
